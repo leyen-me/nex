@@ -1,0 +1,77 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Status enum | 状态枚举
+enum CommonStatus {
+  DISABLED // 禁用
+  ENABLED  // 启用
+}
+
+// Gender enum | 性别枚举
+enum Gender {
+  UNKNOWN // 未知
+  MALE    // 男
+  FEMALE  // 女
+}
+
+// User status enum | 用户状态枚举
+enum UserStatus {
+  DISABLED // 禁用
+  ENABLED  // 启用
+  LOCKED   // 锁定
+  EXPIRED  // 过期
+}
+
+// Sys User model | 系统用户模型
+model SysUser {
+  id        Int      @id @default(autoincrement()) // Primary key | 主键
+  createdAt DateTime @default(now()) // Creation timestamp | 创建时间
+  updatedAt DateTime @updatedAt // Last update timestamp | 最后更新时间
+  deletedAt DateTime? // Soft delete timestamp | 软删除时间
+
+  // Basic Information | 基本信息
+  username  String   @unique // Username for login | 登录用户名
+  password  String   // Encrypted password | 加密后的密码
+  email     String?  @unique // Email address | 电子邮箱
+  phone     String?  @unique // Phone number | 手机号码
+  
+  // Personal Information | 个人信息
+  nickname  String?  // Display name | 显示名称
+  realName  String?  // Real name | 真实姓名
+  avatar    String?  // Avatar URL | 头像链接
+  gender    Gender?     // Gender(0:Unknown, 1:Male, 2:Female) | 性别(0:未知, 1:男, 2:女)
+  birthday  DateTime? // Birthday | 生日
+  bio       String?  @db.Text // Self introduction | 个人简介
+  
+  // Account Status | 账户状态
+  status    UserStatus @default(ENABLED) // Status(0:Disabled, 1:Enabled) | 状态(0:禁用, 1:启用)
+  isVerified Boolean @default(false) // Email/Phone verified status | 邮箱/手机验证状态
+  lastLoginAt DateTime? // Last login timestamp | 最后登录时间
+  lastLoginIp String?  // Last login IP | 最后登录IP
+  
+  // Location Information | 位置信息
+  country   String?  // Country | 国家
+  province  String?  // Province/State | 省份/州
+  city      String?  // City | 城市
+  address   String?  // Detailed address | 详细地址
+  
+  // Preferences | 偏好设置
+  language  String?  // Preferred language | 首选语言
+  timezone  String?  // Timezone | 时区
+  theme     String?  // UI theme preference | UI主题偏好
+
+  @@map("sys_users") // Table name in database | 数据库表名
+}
+

@@ -1,0 +1,33 @@
+-- CreateTable
+CREATE TABLE `sys_users` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+    `deletedAt` DATETIME(3) NULL,
+    `username` VARCHAR(191) NOT NULL,
+    `password` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NULL,
+    `phone` VARCHAR(191) NULL,
+    `nickname` VARCHAR(191) NULL,
+    `realName` VARCHAR(191) NULL,
+    `avatar` VARCHAR(191) NULL,
+    `gender` ENUM('UNKNOWN', 'MALE', 'FEMALE') NULL,
+    `birthday` DATETIME(3) NULL,
+    `bio` TEXT NULL,
+    `status` ENUM('DISABLED', 'ENABLED', 'LOCKED', 'EXPIRED') NOT NULL DEFAULT 'ENABLED',
+    `isVerified` BOOLEAN NOT NULL DEFAULT false,
+    `lastLoginAt` DATETIME(3) NULL,
+    `lastLoginIp` VARCHAR(191) NULL,
+    `country` VARCHAR(191) NULL,
+    `province` VARCHAR(191) NULL,
+    `city` VARCHAR(191) NULL,
+    `address` VARCHAR(191) NULL,
+    `language` VARCHAR(191) NULL,
+    `timezone` VARCHAR(191) NULL,
+    `theme` VARCHAR(191) NULL,
+
+    UNIQUE INDEX `sys_users_username_key`(`username`),
+    UNIQUE INDEX `sys_users_email_key`(`email`),
+    UNIQUE INDEX `sys_users_phone_key`(`phone`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
