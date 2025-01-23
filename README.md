@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+English | [简体中文](./README.zh.md)
 
-## Getting Started
+# Nex
 
-First, run the development server:
+Nex is a full-stack project based on Next.js 14, aiming to provide a modern, efficient, and maintainable development framework.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Common Features:
+-[x] Internationalization Support
+-[x] Theme Switching
+-[x] Mobile Responsive
+-[x] Authentication
+-[x] Captcha
+-[x] Multi-Account Management
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+User:
+-[x] Personal Center/Profile Editing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Admin Management:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Common:
+-[x] Breadcrumbs
+-[x] Tabs
 
-## Learn More
+Permissions:
+-[x] User Management: Users are system operators, this function mainly completes system user configuration.
+-[x] Department Management: Configure system organizational structure (company, department, team), tree structure supports data permissions.
+-[x] Position Management: Configure system user positions and roles.
+-[x] Menu Management: Configure system menus, operation permissions, button permission identifiers, etc.
+-[x] Role Management: Role menu permission assignment, setting role-based organizational data scope permissions.
 
-To learn more about Next.js, take a look at the following resources:
+System:
+-[x] Dictionary Management: Maintain frequently used fixed data in the system.
+-[x] Parameter Management: Configure common dynamic system parameters.
+-[x] Scheduled Tasks: Online (add, modify, delete) task scheduling including execution result logs.
+-[x] System Configuration: Configure common dynamic system parameters.
+-[x] Announcements: System notification and announcement publishing and maintenance.
+-[x] Attachment Management: Provides file upload, download, preview, and delete functions, supports multiple formats including images, documents, and videos, with configurable file size limits and storage locations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Logs:
+-[x] Operation Logs: Record and query normal system operation logs; record and query system exception logs.
+-[x] Login Logs: System login log recording and querying including login exceptions.
+-[x] Online Users: Monitor current active user status in the system.
